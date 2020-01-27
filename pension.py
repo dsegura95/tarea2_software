@@ -13,11 +13,8 @@
 # Imports
 import datetime
 
-# Manejo de fechas mediante liberia de python
-
-
 # Funcion para calcular la edad, Parametros: Fecha de nacimiento
-
+# Parametros: nacimiento : datetime (datetime.date(year,month,day))
 def CalcularEdad(nacimiento):
     hoy = datetime.date.today()
 
@@ -39,3 +36,26 @@ def CalcularEdad(nacimiento):
         # print('Mi edad es: %s' % (edad-1))
         return edad-1
 
+# Función que devuelva como resultado si una persona puede recibir pensión o no
+# Parametros: sexo : string (h/m), edad : int, semanas : int, salubridad : int
+def pensionado(sexo,edad,semanas,salubridad):
+    limitehombre = 60
+    limitemujer = 55
+    if salubridad > 0:
+        reduccion = salubridad // 4
+        if reduccion <= 5:
+            if sexo == "h":
+                limitehombre -= reduccion
+            else:
+                limitemujer -= reduccion
+        else:
+            if sexo == "h":
+                limitehombre -= 5
+            else:
+                limitemujer -= 5
+    if sexo == "h" and edad >= limitehombre and semanas >= 750:
+        return True
+    elif sexo == "m" and edad >= limitemujer and semanas >= 750:
+        return True
+    else:
+        return False
