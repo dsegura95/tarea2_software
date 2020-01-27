@@ -16,6 +16,4 @@
 # antes de tiempo, se rebaja un año por cada cuatro trabajados un maximo
 # de 5 años
 
-
-
 # Manejo de fechas mediante liberia de python
