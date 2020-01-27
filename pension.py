@@ -21,8 +21,10 @@ def CalcularEdad(nacimiento):
     # Edad Negativa por fecha futura
     if hoy < nacimiento:
         print('Fecha de nacimiento Invalida')
+        return False
     elif (hoy.year - nacimiento.year)  > 140:
         print('La Fecha proporcionada supera los 140 anos de edad, Por favor verifique e ingrese nuevamente')
+        return False
     else:
         ano = nacimiento.year
         mes = nacimiento.month
@@ -33,8 +35,8 @@ def CalcularEdad(nacimiento):
             edad += 1
             fecha = datetime.date(ano+edad, mes, dia)
 
-        # print('Mi edad es: %s' % (edad-1))
-        return edad-1
+        print('Mi edad es: %s' % (edad-1))
+        return True
 
 # Función que devuelva como resultado si una persona puede recibir pensión o no
 # Parametros: sexo : string (h/m), edad : int, semanas : int, salubridad : int
@@ -59,3 +61,6 @@ def pensionado(sexo,edad,semanas,salubridad):
         return True
     else:
         return False
+
+
+# CalcularEdad(datetime.date(1794,12,13))
